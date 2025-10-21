@@ -14,7 +14,7 @@ function EditPage() {
   });
 
   const navigate = useNavigate();
-  const {id} = useParams()
+  const { id } = useParams();
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -24,62 +24,66 @@ function EditPage() {
     });
   };
 
- const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const formDataToSend = new FormData();
-  formDataToSend.append("name", formData.name);
-  formDataToSend.append("email", formData.email);
-  formDataToSend.append("password", formData.password);
-  formDataToSend.append("phone_no", formData.phone);
+    const formDataToSend = new FormData();
+    formDataToSend.append("name", formData.name);
+    formDataToSend.append("email", formData.email);
+    formDataToSend.append("password", formData.password);
+    formDataToSend.append("phone_no", formData.phone);
 
-  if (formData.image instanceof File) {
-    formDataToSend.append("file", formData.image);
-  }
-
-  try {
-    const res = await fetch(`https://miniyt-backend.onrender.com/user/edit/${id}`, {
-      method: "PUT",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      body: formDataToSend,
-    });
-
-    const result = await res.json();
-
-    if (result.message === "success") {
-      toast.success("Profile edited successfully");
-      localStorage.setItem("user", JSON.stringify(result.data));
-      navigate("/profile");
-    } else {
-      toast.error(result.message || "Something went wrong");
+    if (formData.image instanceof File) {
+      formDataToSend.append("file", formData.image);
     }
-  } catch (error) {
-    console.error("Error:", error);
-    toast.error("Internal server error");
-  }
-};
 
+    try {
+      const res = await fetch(
+        `https://miniyt-backend.onrender.com/user/edit/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: formDataToSend,
+        }
+      );
 
-  const getDetails = async () => {
-    let data = await fetch(`https://miniyt-backend.onrender.com/user/user/${id}` , {
-      headers : {'authorization' : `Bearer ${localStorage.getItem("token")}`}
-    });
-    data = await data.json();
-    console.log(id);
-    setFormData({
-      name: data.data.name || "",
-      email: data.data.email || "",
-      password: "", 
-      phone: data.data.phone_no || "",
-      image: data.data.filename || null,
-    });
+      const result = await res.json();
+
+      if (result.message === "success") {
+        toast.success("Profile edited successfully");
+        localStorage.setItem("user", JSON.stringify(result.data));
+        navigate("/profile");
+      } else {
+        toast.error(result.message || "Something went wrong");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      toast.error("Internal server error");
+    }
   };
+  useEffect(() => {
+    const getDetails = async () => {
+      let data = await fetch(
+        `https://miniyt-backend.onrender.com/user/user/${id}`,
+        {
+          headers: { authorization: `Bearer ${localStorage.getItem("token")}` },
+        }
+      );
+      data = await data.json();
+      console.log(id);
+      setFormData({
+        name: data.data.name || "",
+        email: data.data.email || "",
+        password: "",
+        phone: data.data.phone_no || "",
+        image: data.data.filename || null,
+      });
+    };
 
-  useEffect(()=>{
-    getDetails()
-  } , [])
+    getDetails();
+  }, [id]);
 
   return (
     <>

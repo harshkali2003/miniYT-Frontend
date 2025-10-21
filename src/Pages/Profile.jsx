@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "../Styles/Profile.css";
 
 function Profile() {
   const [result, setResult] = useState([]);
   const navigate = useNavigate();
-  const { id } = useParams();
   const user = JSON.parse(localStorage.getItem("user"));
   function handleEdit() {
     navigate(`/edit/${user?._id || user?.id}`);
@@ -33,7 +32,8 @@ function Profile() {
     }
   }
 
-  const fetchVideos = async () => {
+  useEffect(() => {
+    const fetchVideos = async () => {
     let data = await fetch(`https://miniyt-backend.onrender.com/video/videos/user/${user._id}` , {
       headers : {'authorization' : `Bearer ${localStorage.getItem("token")}`}
     });
@@ -45,9 +45,8 @@ function Profile() {
     }
   };
 
-  useEffect(() => {
-    fetchVideos();
-  }, []);
+  fetchVideos()
+  }, [user._id]);
   return (
     <>
       <div className="containerProfile">

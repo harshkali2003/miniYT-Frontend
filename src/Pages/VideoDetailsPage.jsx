@@ -8,48 +8,51 @@ function VideoDetailsPage() {
   const [videos, setVideos] = useState([]);
   const { id } = useParams();
 
-  const fetchDetails = async () => {
-    try {
-      const response = await fetch(`https://miniyt-backend.onrender.com/video/video/${id}`);
-      const result = await response.json();
-
-      if (!response.ok) {
-        toast.error(result.message || "Failed to fetch video details");
-        return;
-      }
-
-      setData(result);
-    } catch (e) {
-      toast.error("Error fetching video details");
-    }
-  };
-
-  const fetchVideos = async () => {
-    try {
-      const response = await fetch("https://miniyt-backend.onrender.com/video/videos");
-      const result = await response.json();
-
-      if (!response.ok) {
-        toast.error(result.message || "Failed to fetch videos");
-        setVideos([]);
-        return;
-      }
-
-      if (!Array.isArray(result)) {
-        toast.error("Unexpected response from server");
-        console.log("Invalid data:", result);
-        setVideos([]);
-        return;
-      }
-
-      setVideos(result);
-    } catch (e) {
-      toast.error("Error fetching videos");
-      setVideos([]);
-    }
-  };
-
   useEffect(() => {
+    const fetchDetails = async () => {
+      try {
+        const response = await fetch(
+          `https://miniyt-backend.onrender.com/video/video/${id}`
+        );
+        const result = await response.json();
+
+        if (!response.ok) {
+          toast.error(result.message || "Failed to fetch video details");
+          return;
+        }
+
+        setData(result);
+      } catch (e) {
+        toast.error("Error fetching video details");
+      }
+    };
+
+    const fetchVideos = async () => {
+      try {
+        const response = await fetch(
+          "https://miniyt-backend.onrender.com/video/videos"
+        );
+        const result = await response.json();
+
+        if (!response.ok) {
+          toast.error(result.message || "Failed to fetch videos");
+          setVideos([]);
+          return;
+        }
+
+        if (!Array.isArray(result)) {
+          toast.error("Unexpected response from server");
+          console.log("Invalid data:", result);
+          setVideos([]);
+          return;
+        }
+
+        setVideos(result);
+      } catch (e) {
+        toast.error("Error fetching videos");
+        setVideos([]);
+      }
+    };
     fetchDetails();
     fetchVideos();
   }, [id]);
