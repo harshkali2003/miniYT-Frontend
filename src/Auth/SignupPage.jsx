@@ -27,7 +27,7 @@ function SignupPage() {
     e.preventDefault();
     let data = await fetch("https://miniyt-backend.onrender.com/user/sign",{
       method : "POST",
-      body : JSON.stringify(formData)
+      body : formData
     })
     data = await data.json()
     if(data.message === "success"){
