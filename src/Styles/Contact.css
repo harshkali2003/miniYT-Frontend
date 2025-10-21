@@ -1,0 +1,63 @@
+.containerContact{
+    display: grid;
+    grid-template-rows: 0.5fr 2fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxContact1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.boxContact1 p{
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    padding: 1.5rem;
+}
+
+.boxContact2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    border: 2px solid white;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+.boxContact2 form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+.boxContact2 form input{
+    width: 20rem;
+    height: 2rem;
+    border: none;
+    border-radius: 6px;
+}
+
+.boxContact2 form button{
+    padding: 1.3rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: red;
+    color: white;
+    font-size: large;
+}

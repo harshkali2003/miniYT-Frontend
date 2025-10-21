@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.containerAuth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  width: 100%;
+  height: 100dvh;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.boxAuth1,
+.boxAuth2 {
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.boxAuth1 {
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  overflow: auto;
+}
+
+.boxAuth1 p,
+.boxAuth1 h2 {
+  margin: 0;
+  width: 60%;
+}
+
+.boxAuth1 input,
+.boxAuth1 button {
+  width: 70%;
+  max-width: 420px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.boxAuth1 button {
+  background-color: red;
+  color: white;
+}
+
+.boxAuth2 {
+  overflow: hidden;
+}
+
+.boxAuth2 img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#sign {
+  display: flex;
+  justify-content: flex-start;
+  width: 60%;
+  gap: 6px;
+}
+
+#sign a {
+  text-decoration: none;
+  color: red;
+  font-size: medium;
+}
+
+#or {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#l{
+  display: flex;
+  position: relative;
+  top: -7rem;
+  left: -0.5rem;
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .containerAuth {
+    grid-template-columns: 1fr; 
+    grid-template-rows: 45% 55%;
+    height: 100dvh;
+  }
+
+  .boxAuth2 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .boxAuth1 {
+    padding: 1.5rem;
+    gap: 0.8rem;
+  }
+
+  .boxAuth1 input,
+  .boxAuth1 button {
+    width: 80%;
+  }
+
+  .boxAuth1 p,
+  .boxAuth1 h2 {
+    width: 80%;
+    text-align: center;
+  }
+
+  #sign {
+    width: 80%;
+    justify-content: center;
+  }
+
+  #l{
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .containerAuth {
+    grid-template-columns: 1fr; 
+    height: 100dvh;
+  }
+
+  .boxAuth2 {
+    display: none;
+  }
+
+  .boxAuth1 {
+    padding: 1.2rem;
+    justify-content: center;
+  }
+
+  .boxAuth1 p,
+  .boxAuth1 h2 {
+    width: 90%;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .boxAuth1 input,
+  .boxAuth1 button {
+    width: 90%;
+    padding: 9px;
+  }
+
+  .boxAuth1 button {
+    font-size: 0.9rem;
+  }
+
+  #sign {
+    width: 90%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  #sign a {
+    font-size: 0.9rem;
+  }
+   #l{
+    display: none;
+  }
+}

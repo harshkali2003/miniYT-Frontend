@@ -1,0 +1,92 @@
+html , body{
+    overflow-y: auto;
+}
+.containerHome{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    gap: 1rem;
+    padding: 1.5rem;
+    min-height: 100vh;
+    overflow-y: auto;
+}
+
+.boxHome1{
+    display: grid;
+    grid-template-rows: 0.5fr 3fr;
+    gap: 1rem;
+    padding: 1.2rem;
+}
+
+#homeID1{
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    padding: 0.2rem;
+    font-size: large;
+    font-weight: bold;
+    width: fit-content;
+    height: fit-content;
+}
+
+#homeID2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.brand {
+  width: 250px;
+  height: 350px;
+  border-bottom: 2px solid red;
+}
+
+
+ .brand video {
+  width: 100%;         
+  max-width: 250px;    
+  max-height: 180px;   
+  height: auto;       
+  border-radius: 5px;
+  display: block;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  object-fit: cover;   
+} 
+
+
+
+.boxHome2{
+    border: 2px solid white;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 2px black;
+}
+
+@media (max-width: 1000px) {
+  .containerHome {
+    display: grid;
+    grid-template-rows: auto;
+  }
+
+  #homeID1 {
+    font-size: medium;
+  }
+
+  #homeID2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .boxHome2 {
+    grid-row: 1; 
+    width: 100%; 
+    box-sizing: border-box; 
+  }
+
+  .boxHome1 {
+    grid-row: 2; 
+  }
+}
+

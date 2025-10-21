@@ -1,0 +1,39 @@
+.containerAbout{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    gap: 1rem;
+    font-size: large;
+    text-align: center;
+}
+
+.boxAbout1 , .boxAbout2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+#abt{
+    border: 2px solid red;
+    border-radius: 10px;
+    background-color: red;
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+    padding: 1.2rem;
+    width: fit-content;
+}
+
+#desc{
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    box-shadow: 0.1px 0.1px 0.1px black;
+    padding: 1.5rem;
+}

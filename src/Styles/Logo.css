@@ -1,0 +1,8 @@
+.logo{
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    color: white;
+    background-color: red;
+    font-size: larger;
+}

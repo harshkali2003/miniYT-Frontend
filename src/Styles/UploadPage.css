@@ -1,0 +1,132 @@
+:root{
+  --bg: #f6f8fa;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --danger: #ef4444;
+}
+
+.upload-page{
+  min-height: 100vh;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 2rem;
+  background: linear-gradient(180deg, var(--bg), #ffffff 60%);
+  box-sizing: border-box;
+}
+
+.upload-card{
+  background: var(--card);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+  max-width: 900px;
+  width: 100%;
+}
+
+.title{
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+}
+
+.label{
+  display: block;
+  margin: 0.75rem 0 0.25rem 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.input, .textarea{
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #e6e9ee;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+}
+
+.textarea{
+  min-height: 100px;
+  resize: vertical;
+}
+
+.file-input{
+  padding: 0.3rem 0.5rem;
+}
+
+.tags-row{
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.tag{
+  background: #eef2ff;
+  border: none;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.preview{
+  margin-top: 1rem;
+}
+
+.actions{
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.btn{
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn.primary{
+  background: var(--accent);
+  color: white;
+}
+
+.btn.ghost{
+  background: transparent;
+  border-color: #e6e9ee;
+  color: #111827;
+}
+
+.progress{
+  margin-top: 1rem;
+  height: 10px;
+  background: #eef2ff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar{
+  height: 100%;
+  background: linear-gradient(90deg, #60a5fa, #2563eb);
+  width: 0;
+  transition: width 0.25s linear;
+}
+
+.sidebar{
+  align-self: start;
+}
+
+.meta{
+  background: var(--card);
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+@media (max-width: 880px){
+  .upload-page{ grid-template-columns: 1fr; }
+  .sidebar{ order: 2; }
+}
