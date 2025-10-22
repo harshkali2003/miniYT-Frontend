@@ -48,6 +48,11 @@
     box-shadow: 0.5px 1px 1px black;
 }
 
+.boxVideo a{
+    text-decoration: none;
+    color:  white;
+}
+
 .boxVideo video{
     height: 11rem;
     width: fit-content;

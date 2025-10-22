@@ -94,7 +94,7 @@ function VideoDetailsPage() {
           <div className="boxVideo" key={item._id}>
             <Link to={`/video/${item._id}`}>
               <video src={`${item.filename}`} controls />
-            </Link>
+            
             <p>
               <strong>Title:</strong> {item.title}
             </p>
@@ -104,6 +104,7 @@ function VideoDetailsPage() {
             <p>
               <strong>Uploaded By:</strong> {item.uploadedBy?.name || "Unknown"}
             </p>
+            </Link>
           </div>
         ))}
       </div>

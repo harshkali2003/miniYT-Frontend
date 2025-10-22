@@ -41,6 +41,11 @@ html , body{
   border-bottom: 2px solid red;
 }
 
+.brand a{
+  text-decoration: none;
+  color: black;
+}
+
 
  .brand video {
   width: 100%;         

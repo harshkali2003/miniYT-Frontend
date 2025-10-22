@@ -61,6 +61,11 @@ html, body {
   height: 100%; 
 }
 
+.boxVideo a{
+  text-decoration:  none;
+  color: white;
+}
+
 
 @media (max-width : 1000px) {
   .containerDetails {
