@@ -79,7 +79,7 @@ const handleSearch = async () => {
             <div className="boxVideo" key={item._id}>
               <Link to={`/video/${item._id}`}>
                 <video src={item.filename} controls />
-              </Link>
+              
               <p>
                 <strong>Title:</strong> {item.title}
               </p>
@@ -90,6 +90,7 @@ const handleSearch = async () => {
                 <strong>Uploaded At:</strong>{" "}
                 {new Date(item.uploadedAt).toLocaleString()}
               </p>
+              </Link>
             </div>
           ))
         ) : (

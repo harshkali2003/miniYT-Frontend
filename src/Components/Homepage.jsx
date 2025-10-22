@@ -44,13 +44,13 @@ function Homepage({ searchResults, isSearching , searchActive }) {
                     loop
                     playsInline
                   ></video>
-                </Link>
                   <p>
                     <strong>{item.title}</strong>
                   </p>
                   <p>{item.description}</p>
                   <p>Uploaded by: {item.uploadedBy?.name || "Unknown"}</p>
                   <p>{item.hashtags?.join(" ")}</p>
+                  </Link>
                 </div>
               ))
             ) : (
